@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<header>
+    <!--logo-->
+    <img src="./images/c-logo.png" alt="logo contact us" class="logo">
+    <!--menu-->
+     <div class="nav_bar">
+        <nav class="menu">
+            <ul>
+            <div class="linea"></div>
+                <li class="li_menu"><a href="./main.html" class="link-menu">Contactos</a></li>
+                <div class="linea"></div>
+                <li class="li_menu"><a href="./users.html" class="link-menu">Usuarios</a></li>
+                <div class="linea"></div>
+                <li class="li_menu"><a href="./companies.html" class="link-menu">Compañías</a></li>
+                <div class="linea"></div>
+                <li class="li_menu"><a href="./regions.html" class="link-menu">Region/ciudad</a></li>
+                <div class="linea"></div>
+            </ul>
+        </nav>
+     </div>
+</header>
+<body>
+    <main>
+        <!--parte superior, espacio buscador-->
+        <section class="intro">
+            <!--Buscador-->
+            <div class="buscador">
+                <input type="search" placeholder="Busca contactos" id="search" data-table="table_id" class="form-control" class="input-buscador">
+                <div class="autocomplete"></div>
+            </div>
+            <div class="options">
+                <button>subir</button>
+                <button>exportar</button>
+                <button>agregar</button>
+            </div>
+        </section>
+        <section>
+            <h1>CONTACTOS</h1>
+            <table class="table-contacts">
+                 <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>last_name</th>
+                        <th>position</th>
+                        <th>mail</th>
+                        <th>company</th>
+                        <th>region</th>
+                        <th>country</th>
+                        <th>city</th>
+                    </tr>
+                </thead>
+                    <tr class="dataContacts">
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>nombre</td>
+                        <td>col</td>
+                        <td>acamica</td>
+                        <td>presidet</td>
+                        <td>insta</td>
+                        <td>20%</td>
+                        <td>no se</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>nombre</td>
+                        <td>col</td>
+                        <td>acamica</td>
+                        <td>presidet</td>
+                        <td>insta</td>
+                        <td>20%</td>
+                        <td>no se</td>
+                    </tr>
+            </table>
+        </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

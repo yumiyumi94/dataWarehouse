@@ -1,0 +1,134 @@
+  .menu {
+    background-color: rgba(208, 194, 144, 0.519);
+    opacity: 0.9;
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+  }
+
+ul{
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    gap: 20px;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.link-menu{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.link-menu:hover{
+  color: green;
+}
+
+.li_menu:hover {
+    color: green;
+    text-decoration: solid;
+  }
+
+.logo{
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  z-index: 100;
+}
+
+.intro{
+    position: relative;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: -250px;
+}
+
+.buscador {
+    width: 350px;
+    height: 50px;
+    border: 2px solid green;
+    border-radius: 40px;
+    position: relative;
+    outline: none;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+.options{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  justify-items: end;
+  width: 35%;
+}
+
+button{
+  padding: 2px;
+  margin: 2px;
+}
+
+#search{
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 350px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.417);
+  color: black;
+  font-size: 18px;
+  text-align: center;
+}
+
+#busqueda {
+    border: hidden;
+    margin-left: -50px;
+    margin-top: 5px;
+    width: 260px;
+}
+
+#busqueda:focus {
+    outline: none;
+}
+
+.table-contacts{
+  width: 1000px;
+  border: 2px solid green;
+  background: rgba(255, 255, 255, 0.709);
+  text-align: left;
+  border-collapse: collapse;
+}
+
+th, td{
+  padding: 10px;
+}
+
+thead{
+  background-color: rgba(208, 194, 144, 0.767);
+  color: green;
+  border-bottom: 2px solid green;
+}
+
+tr:nth-child(even){
+  background-color: rgba(188, 187, 187, 0.714);
+}
+
+tr:hover td{
+  background-color: green;
+  color: white;
+}

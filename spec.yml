@@ -1,0 +1,561 @@
+openapi: 3.0.3
+info:
+  title: "Data Warehouse"
+  description: "This is a  Data Warehouse server"
+  contact:
+    email: yumiyumi94@gmail.com
+  version: 0.0.0
+host: "localhost:3000"
+basePath: "/"
+tags:
+  - name: "contacts"
+    description: "Acces to the contacts of the DB of the company"
+  - name: user
+    description: Operations about user
+schemes:
+  -"http"
+Paths:
+  /auth/login:
+    post:
+      tags:
+      - "auth"
+      summary: "log user into de system"
+      description: "log user into de system"
+      consumes:
+        -"application/json"
+      produces:
+        -"application/json"
+      parameters:
+      -in: "body"
+      name: "body"
+      description: "create user object"
+      require: true
+      schema:
+        $ref: "#/definitions/loginParams"
+      responses:
+        '200':
+          description: "operation successful"
+          schema:
+            $ref: "#/definitions/loginSuccess"
+        '403':
+          description: "user or password wrong"
+  /auth/sign-up:
+    post:
+      tags:
+      - "auth"
+      summary: "create new user"
+      description: "create new user"
+      consumes:
+        -"application/json"
+      produces:
+        -"application/json"
+      parameters:
+      -in: "body"
+      name: "body"
+      description: "create user object"
+      require: true
+      schema:
+        $ref: "#/definitions/loginParams"
+      responses:
+        '200':
+          description: "operation successful"
+          schema:
+            $ref: "#/definitions/loginSuccess"
+        '403':
+          description: "user or password wrong"
+  /contacts:
+    get:
+    tags:
+      -"contact"
+    summary: "Return contacts"
+    description: "Return contacts"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/contact"
+      security:
+        -authorization:[]
+    post:
+      tags:
+      - "contact"
+      summary: "create new contact"
+      description: "create new contact"
+      consumes:
+        -"application/json"
+      produces:
+        -"application/json"
+      parameters:
+      -in: "body"
+      name: "body"
+      description: "create contact object"
+      require: true
+      schema:
+        $ref: "#/definitions/createContactParams"
+      responses:
+        '200':
+          description: "operation successful"
+          schema:
+            $ref: "#/definitions/creatSuccess"
+        '403':
+          description: "user or password wrong"
+  /contact/id:
+    put:
+      tags:
+        -"contact"
+    summary: "Update contact by id"
+    description: "Update contact by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/contact"
+      security:
+        -authorization:[]
+  /contact/id:
+    get:
+      tags:
+        -"contact"
+    summary: "Get contact by id"
+    description: "Get contact by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/contact"
+      security:
+        -authorization:[]
+  /contact/id:
+    delete:
+      tags:
+       -"contact"
+    summary: "Delete contact by id"
+    description: "Delete contact by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/contact"
+      security:
+        -authorization:[]
+  /companies:
+    get:
+    tags:
+      -"company"
+    summary: "Return companies"
+    description: "Return companies"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/company"
+      security:
+        -authorization:[]
+    post:
+      tags:
+      - "company"
+      summary: "create new company"
+      description: "create new company"
+      consumes:
+        -"application/json"
+      produces:
+        -"application/json"
+      parameters:
+      -in: "body"
+      name: "body"
+      description: "create company object"
+      require: true
+      schema:
+        $ref: "#/definitions/createCompanyParams"
+      responses:
+        '200':
+          description: "operation successful"
+          schema:
+            $ref: "#/definitions/creatSuccess"
+        '403':
+          description: "user or password wrong"
+  /company/id:
+    put:
+      tags:
+        -"company"
+    summary: "Update company by id"
+    description: "Update company by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/company"
+      security:
+        -authorization:[]
+  /company/id:
+    get:
+      tags:
+        -"company"
+    summary: "Get company by id"
+    description: "Get company by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/company"
+      security:
+        -authorization:[]
+  /company/id:
+    delete:
+      tags:
+       -"company"
+    summary: "Delete company by id"
+    description: "Delete company by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/company"
+      security:
+        -authorization:[]
+  /regions:
+    get:
+    tags:
+      -"region"
+    summary: "Return regions"
+    description: "Return regions"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/region"
+      security:
+        -authorization:[]
+    post:
+      tags:
+      - "region"
+      summary: "create new region"
+      description: "create new region"
+      consumes:
+        -"application/json"
+      produces:
+        -"application/json"
+      parameters:
+      -in: "body"
+      name: "body"
+      description: "create region object"
+      require: true
+      schema:
+        $ref: "#/definitions/createRegionParams"
+      responses:
+        '200':
+          description: "operation successful"
+          schema:
+            $ref: "#/definitions/creatSuccess"
+        '403':
+          description: "user or password wrong"
+  /region/id:
+    put:
+      tags:
+        -"region"
+    summary: "Update region by id"
+    description: "Update region by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/region"
+      security:
+        -authorization:[]
+  /region/id:
+    get:
+      tags:
+        -"region"
+    summary: "Get region by id"
+    description: "Get region by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/region"
+      security:
+        -authorization:[]
+  /region/id:
+    delete:
+      tags:
+       -"region"
+    summary: "Delete region by id"
+    description: "Delete region by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/region"
+      security:
+        -authorization:[]
+  /city:
+    get:
+    tags:
+      -"city"
+    summary: "Return cities"
+    description: "Return cities"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/city"
+      security:
+        -authorization:[]
+    post:
+      tags:
+      - "city"
+      summary: "create new city"
+      description: "create new city"
+      consumes:
+        -"application/json"
+      produces:
+        -"application/json"
+      parameters:
+      -in: "body"
+      name: "body"
+      description: "create region object"
+      require: true
+      schema:
+        $ref: "#/definitions/createCityParams"
+      responses:
+        '200':
+          description: "operation successful"
+          schema:
+            $ref: "#/definitions/creatSuccess"
+        '403':
+          description: "user or password wrong"
+  /city/id:
+    put:
+      tags:
+        -"city"
+    summary: "Update city by id"
+    description: "Update city by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/city"
+      security:
+        -authorization:[]
+  /region/id:
+    get:
+      tags:
+        -"city"
+    summary: "Get city by id"
+    description: "Get city by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/city"
+      security:
+        -authorization:[]
+  /city/id:
+    delete:
+      tags:
+       -"rcity"
+    summary: "Delete city by id"
+    description: "Delete city by id"
+    produces:
+      -"application/jason"
+    responses:
+      "200":
+        description: "operation successful"
+        schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/city"
+      security:
+        -authorization:[]
+securityDefinitions:
+  authorization:
+    type: "apiKey"
+    name: "authorization"
+    in: "header"
+definitions:
+  loginSuccess:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      token:
+        type: "string"
+  creatSuccess:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+      token:
+        type: "string"
+  contact:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+      name:
+        type: "string"
+      lastname:
+        type: "string"
+      position:
+        type: "string"
+      mail:
+        type: "string"
+      company:
+        type: "string"
+  company:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+      name:
+        type: "string"
+      city:
+        type: "string"
+      adress:
+        type: "string"
+      mail:
+        type: "string"
+  region:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+      name:
+        type: "string"
+  city:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+      name:
+        type: "string"
+  loginParams:
+    type: "object"
+    properties:
+      user:
+        type: "string"
+        description: " The use name for login"
+        required:
+          -"true"
+      password:
+        type: "string"
+        description: " The password name for login"
+        required:
+          -"true"
+  createContactParams:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: " The contact name to create it"
+        required:
+          -"true"
+      lastname:
+        type: "string"
+        description: " The contact lastname to create it"
+        required:
+          -"true"
+      mail:
+        type: "string"
+        description: "The contact mail to create it"
+        required:
+          -"true"
+  createCompanyParams:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: " The company name to create it"
+        required:
+          -"true"
+      adress:
+        type: "string"
+        description: " The company adress to create it"
+        required:
+          -"true"
+      city:
+        type: "string"
+        description: " The company city to create it"
+        required:
+          -"true"
+      mail:
+        type: "string"
+        description: "The company mail to create it"
+        required:
+          -"true"
+  createRegionParams:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: " The region name to create it"
+        required:
+          -"true"
+  createCityParams:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: " The city name to create it"
+        required:
+          -"true"
